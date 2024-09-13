@@ -7,8 +7,8 @@
 #include <windows.h>
 
 // Window constants
-#define WIDTH 1920
-#define HEIGHT 1080
+#define WIDTH 800
+#define HEIGHT 800
 #define FRAMERATE 60
 
 // mass in solar masses
@@ -52,9 +52,6 @@ constexpr float NEPTUNE_VELOCITY = 0.0031;
 int main()
 {
 
-    HWND hWnd = GetConsoleWindow();
-    ShowWindow( hWnd, SW_HIDE );
-    
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sim");
 
     Particle sun(sf::Vector2f(0, 0),sf::Vector2f(0, 0),sf::Vector2f(0, 0), 20, SUN_MASS, true, false, sf::Color(255, 255, 0));
