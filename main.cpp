@@ -7,8 +7,8 @@
 #include <windows.h>
 
 // Window constants
-#define WIDTH 1920
-#define HEIGHT 1080
+#define WIDTH 800
+#define HEIGHT 800
 #define FRAMERATE 60
 
 // mass in solar masses
