@@ -14,7 +14,7 @@ public:
 
 	const float& mass = m_mass;
 	const float& radius = m_radius;
-	float& orbit_magnitude = m_orbit_magnitude;
+	float& orbit_magnitude = m_orbit_magnitude; // not const because of zoom in and out
 
 	const sf::Vector2f& pos = m_pos;
 	const sf::Vector2f& vel = m_vel;

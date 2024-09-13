@@ -9,6 +9,47 @@ void Particle::render(sf::RenderWindow &win, float system_radius, const sf::Vect
 
 	sf::Vector2f screen_pos = getScreenCoords(win, system_radius, system_center);
 
+	if (screen_pos.x + m_radius < 0 || screen_pos.x - m_radius >= win.getSize().x || screen_pos.y + m_radius < 0 || screen_pos.y - m_radius >= win.getSize().y)
+	{
+
+		sf::Vector2f arrow_vector(screen_pos.x - win.getSize().x/2, screen_pos.y - win.getSize().y/2);
+
+		float arrow_vector_mag = sqrt(arrow_vector.x * arrow_vector.x + arrow_vector.y * arrow_vector.y);
+
+		sf::Vector2f unit_arrow = arrow_vector / arrow_vector_mag;
+
+		sf::Vector2f unit_arrow_perpendicular_clockwise(unit_arrow.y, -unit_arrow.x);
+
+		sf::Vector2f arrow_head(std::min(std::max(0, (int)screen_pos.x),(int)win.getSize().x-1),std::min(std::max(0, (int)screen_pos.y),(int)win.getSize().y-1));
+
+		sf::Vector2f arrow_tail = arrow_head - unit_arrow * 25.f;
+		arrow_head = arrow_head - unit_arrow - unit_arrow * 5.f;
+
+		sf::Vertex line[] =
+		{
+		    sf::Vertex(arrow_tail),
+		    sf::Vertex(arrow_head),
+		    sf::Vertex(arrow_head),
+		    sf::Vertex(arrow_head - unit_arrow * 5.f + unit_arrow_perpendicular_clockwise * 3.f),
+		    sf::Vertex(arrow_head),
+		    sf::Vertex(arrow_head - unit_arrow * 5.f - unit_arrow_perpendicular_clockwise * 3.f)
+		};
+
+		win.draw(line, 6, sf::Lines);
+
+		float indicator_radius = m_radius / 2;
+
+		sf::CircleShape indicator_circle(indicator_radius);
+
+		indicator_circle.setFillColor(m_color);
+
+		indicator_circle.setPosition(arrow_tail - sf::Vector2f(indicator_radius,indicator_radius) - unit_arrow * 2.f * indicator_radius);
+
+		win.draw(indicator_circle);
+
+
+	}
+
 	if (m_scale_orbit)
 	{
 
