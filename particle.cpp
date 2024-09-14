@@ -47,7 +47,6 @@ void Particle::render(sf::RenderWindow &win, float system_radius, const sf::Vect
 
 		win.draw(indicator_circle);
 
-
 	}
 
 	if (m_scale_orbit)

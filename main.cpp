@@ -1,10 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include "particle.hpp"
 #include "particle_system.hpp"
+#include "asteroid_belt.hpp"
 #include "utils.hpp"
 #include <iostream>
 #include <cmath>
-#include <windows.h>
 
 // Window constants
 #define WIDTH 800
@@ -52,9 +52,6 @@ constexpr float NEPTUNE_VELOCITY = 0.0031;
 int main()
 {
 
-    HWND hWnd = GetConsoleWindow();
-    ShowWindow( hWnd, SW_HIDE );
-
     sf::RenderWindow window(sf::VideoMode(WIDTH, HEIGHT), "Sim");
 
     Particle sun(sf::Vector2f(0, 0),sf::Vector2f(0, 0),sf::Vector2f(0, 0), 20, SUN_MASS, true, false, sf::Color(255, 255, 0));
@@ -87,6 +84,8 @@ int main()
     solver.addParticle(&saturn);
     solver.addParticle(&uranus);
     solver.addParticle(&neptune);
+
+    AsteroidBelt asteroid_belt(1500);
 
     window.setFramerateLimit(FRAMERATE);
 
@@ -152,6 +151,9 @@ int main()
  
 
         window.clear();
+
+        asteroid_belt.update();
+        asteroid_belt.render(window, solver.system_radius, *solver.system_center);
 
         solver.update();
         solver.render(window);
