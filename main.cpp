@@ -60,10 +60,10 @@ int main()
     Particle earth(sf::Vector2f(0, -EARTH_RADIUS),sf::Vector2f(EARTH_VELOCITY, 0),sf::Vector2f(0, 0), 5, EARTH_MASS, false, true, sf::Color(101,148,188));
     Particle moon(sf::Vector2f(0, -MOON_RADIUS),sf::Vector2f(MOON_VELOCITY, 0),sf::Vector2f(0, 0), 1, MOON_MASS, false, true, sf::Color(100,100,100));
     Particle mars(sf::Vector2f(0, -MARS_RADIUS),sf::Vector2f(MARS_VELOCITY, 0),sf::Vector2f(0, 0), 4, MARS_MASS, false, true, sf::Color(193,68,14));
-    Particle jupiter(sf::Vector2f(0, -JUPITER_RADIUS),sf::Vector2f(JUPITER_VELOCITY, 0),sf::Vector2f(0, 0), 7, JUPITER_MASS, false, true, sf::Color(201,144,57));
-    Particle saturn(sf::Vector2f(0, -SATURN_RADIUS),sf::Vector2f(SATURN_VELOCITY, 0),sf::Vector2f(0, 0), 5, SATURN_MASS, false, true, sf::Color(227,152,17));
-    Particle uranus(sf::Vector2f(0, -URANUS_RADIUS),sf::Vector2f(URANUS_VELOCITY, 0),sf::Vector2f(0, 0), 5, URANUS_MASS, false, true, sf::Color(209,231,231));
-    Particle neptune(sf::Vector2f(0, -NEPTUNE_RADIUS),sf::Vector2f(NEPTUNE_VELOCITY, 0),sf::Vector2f(0, 0), 5, NEPTUNE_MASS, false, true, sf::Color(91,93,223));
+    Particle jupiter(sf::Vector2f(0, -JUPITER_RADIUS),sf::Vector2f(JUPITER_VELOCITY, 0),sf::Vector2f(0, 0), 8, JUPITER_MASS, false, true, sf::Color(201,144,57));
+    Particle saturn(sf::Vector2f(0, -SATURN_RADIUS),sf::Vector2f(SATURN_VELOCITY, 0),sf::Vector2f(0, 0), 7, SATURN_MASS, false, true, sf::Color(227,152,17));
+    Particle uranus(sf::Vector2f(0, -URANUS_RADIUS),sf::Vector2f(URANUS_VELOCITY, 0),sf::Vector2f(0, 0), 7, URANUS_MASS, false, true, sf::Color(209,231,231));
+    Particle neptune(sf::Vector2f(0, -NEPTUNE_RADIUS),sf::Vector2f(NEPTUNE_VELOCITY, 0),sf::Vector2f(0, 0), 6, NEPTUNE_MASS, false, true, sf::Color(91,93,223));
 
     moon.scaleOrbit(&earth, 10);
 
